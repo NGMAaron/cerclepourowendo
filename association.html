@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Association citoyenne engagée pour le développement local et la solidarité à Owendo.">
+  <link rel="icon" href="img/x-icon.ico" type="image/x-icon">
+  <title>L'Association</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <header>
+    <img src="img/logo.jpg" class="logo" alt="Logo de l'association">
+    <p>Maîtrisons notre avenir</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="association.html">L'association</a></li>
+        <li><a href="candidat.html">Vision</a></li>
+        <li><a href="actions.html">Projet communal</a></li>
+        <li><a href="contacte.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Qui sommes-nous ?</h2>
+      <p>Notre association est née de la volonté de redonner espoir à nos quartiers. Fondée 
+      par Mr. Bruno Prince MOUBAMBA, elle rassemble des citoyens engagés, prêts à œuvrer pour le 
+      développement local, la transparence et la solidarité.</p>
+
+      <h3>Objectifs :</h3>
+      <ul>
+        <li>Encourager la participation citoyenne</li>
+        <li>Lutter contre les inégalités</li>
+        <li>Promouvoir la culture locale et l'entrepreneuriat</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Campagne</h3>
+      <p>Nous avons pris part activement à la campagne dans le 2ème Arrondissement d'Owendo, notre fief.</p>
+
+      <div class="carousel">
+        <img src="img/fp.jpg" alt="Campagne 1">
+        <img src="img/tq.jpg" alt="Campagne 2">
+        <img src="img/ti.jpg" alt="Campagne 3">
+        <img src="img/dt.jpg" alt="Campagne 4">
+      </div>
+
+      <!-- Lightbox plein écran -->
+      <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="Image agrandie">
+      </div>
+    </section>
+  </main>
+
+  <footer><p>&copy;  copyrigth 2025 cercle d'action pour owendo par Khansu group</p></footer>
+
+  <script>
+    // Animation d'entrée
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("page-enter");
+    });
+
+    // Animation de sortie sur les liens internes
+    document.querySelectorAll("a").forEach(link => {
+      if (link.hostname === window.location.hostname) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const href = this.href;
+          document.body.classList.remove("page-enter");
+          document.body.style.transform = "translateY(20px)";
+          document.body.style.opacity = "0";
+          setTimeout(() => window.location.href = href, 500);
+        });
+      }
+    });
+
+    // Lightbox plein écran
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".lightbox .close");
+
+    document.querySelectorAll(".carousel img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
+    });
+
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+      }
+    });
+  </script>
+</body>
+</html>
+

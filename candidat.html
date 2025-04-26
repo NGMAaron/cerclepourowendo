@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/x-icon.ico" type="image/x-icon">
+  <title> Vision</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <img src="img/logo.jpg" class="logo" alt="Logo">
+    <p>Maîtrisons notre avenir</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="association.html">L'association</a></li>
+        <li><a href="candidat.html">Vision</a></li>
+        <li><a href="actions.html">Projet communal</a></li>
+        <li><a href="contacte.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Le mot du candidat</h2>
+    <p>
+      Je suis Bruno Prince MOUBAMBA, initiateur de cette association et candidat aux élections 
+      municipales. Mon ambition : construire une ville plus juste, plus propre et plus 
+      solidaire. Je m’engage à être à l’écoute, transparent et proche de vous.
+    </p>
+    <p><strong>Engagements :</strong></p>
+    <ul>
+      <li>Un développement durable et équitable</li>
+      <li>Une meilleure gestion des ressources</li>
+      <li>Une écoute active des besoins citoyens</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Biographie</h3>
+    <img src="img/cand.jpg" alt="cand" style="display: block; margin: 0 auto;">
+    
+    <p><strong>MOUBAMBA J-BRUNO PRINCE</strong></p>
+
+    <p>
+      Diplômé en Gestion des Collectivités Locales et Développement Territorial, né le 14 février 1974 à Malinga (Gabon). Il est marié et père de deux enfants.
+    </p>
+
+    <p>
+      Optimiste et idéaliste, il est un manager d’équipes. Pendant plusieurs années, il a aidé de nombreuses personnes à regagner la confiance des populations défavorisées, notamment dans le cadre du programme du HCR (Haut Commissariat des Nations Unies pour les Réfugiés).
+    </p>
+
+    <p>
+      Il a également été pigiste pour les magazines « Planète Jeunes » et « Union Plus » durant plusieurs années.
+    </p>
+
+    <p>
+      Actuellement, il travaille à la Caisse Nationale de Sécurité Sociale (CNSS) à Libreville en tant que Chef de Services Métiers, après une formation en Gestion d’Organismes de Sécurité Sociale.
+    </p>
+
+    <p>
+      Technicien engagé, il œuvre pour l’atteinte de ses objectifs avec passion. Il est aussi très actif dans le tissu associatif : membre du Cercle d’Action pour Owendo (CAO), du Renouveau Gabon (LRG), et initiateur de la coopérative agricole « L’Amour du Prochain ».
+    </p>
+
+    <p>
+      Il porte également un projet d’exploitation et de transformation du manioc, visant à promouvoir la consommation locale et à créer de l’emploi au Gabon.
+    </p>
+
+    <p>
+      Son engagement concret pour la diversification de l’économie gabonaise s’exprime aussi à travers sa propre entreprise dans le secteur du BTP (construction, entretien des routes, etc.).
+    </p>
+
+    <p>
+      Ancien conseiller municipal et titulaire d’un Master professionnel en Développement Local et Gestion des Collectivités Territoriales (MDLCT), il souhaite aujourd’hui mettre ses compétences au service de sa communauté.
+    </p>
+  </section>
+  <footer><p>&copy;  copyrigth 2025 cercle d'action pour owendo par Khansu group</p></footer>
+</body>
+</html>
+
+
+  <script>
+    // Ajout de la classe à l'arrivée sur la page
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("page-enter");
+    });
+  
+    // Animation de sortie sur tous les liens internes
+    document.querySelectorAll("a").forEach(link => {
+      const isSameHost = link.hostname === window.location.hostname;
+  
+      if (isSameHost) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const href = this.href;
+  
+          document.body.classList.remove("page-enter");
+          document.body.style.transform = "translateY(20px)";
+          document.body.style.opacity = "0";
+  
+          setTimeout(() => {
+            window.location.href = href;
+          }, 500); // doit être inférieur au transition du CSS
+        });
+      }
+    });
+  </script>
+</body>
+</html>

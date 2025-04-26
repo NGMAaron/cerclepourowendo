@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/x-icon.ico" type="image/x-icon">
+  <title>Projet communal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <img src="img/logo.jpg" class="logo" alt="Logo">
+    <p>Maîtrisons notre avenir</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="association.html">L'association</a></li>
+        <li><a href="candidat.html">Vision</a></li>
+        <li><a href="actions.html">Projet communal</a></li>
+        <li><a href="contacte.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="actions">
+    <h2>Nos Actions concrètes</h2>
+    <ul>
+      <li>Organisation de rencontres citoyennes</li>
+      <li>Participation aux conseils communaux</li>
+      <li>Projets de développement local</li>
+      <li>Campagnes de sensibilisation sur les droits civiques</li>
+    </ul>
+  </section>
+
+  <section class="image-text-section">
+    <div class="image-text-block">
+      <div class="text">
+        <h3>Sensibilisation</h3>
+        <p>Sensibilisation au domicile du Président la lutte contre l'insécurité dans le quartier.</p>
+      </div>
+      <img src="img/sensi.jpg" alt="Campagne de sensibilisation">
+    </div>
+
+    <div class="image-text-block reverse">
+      <img src="img/tra.jpg" alt="Travaux communautaires">
+      <div class="text">
+        <h3>Travaux communautaires</h3>
+        <p>Une action avec les jeunes d'Akournam 2, la ruelle mombo, afin de la rendre praticable.</p>
+      </div>
+    </div>
+
+    <div class="image-text-block">
+      <div class="text">
+        <h3>Réunions publiques</h3>
+        <p>Une rencontre entre le Président de l'association et un groupe d'entrepreneurs , dans le but de trouver des partenaires afin de travailler certaines voies secondaires du 2eme Arrondissement d'owendo.</p>
+      </div>
+      <img src="img/reu.jpg" alt="Réunion publique">
+    </div>
+  </section>
+
+  <footer><p>&copy;  copyrigth 2025 cercle d'action pour owendo par Khansu group</p></footer>
+
+  <script>
+    // Animation d'entrée
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("page-enter");
+    });
+
+    // Animation de sortie sur les liens
+    document.querySelectorAll("a").forEach(link => {
+      const isSameHost = link.hostname === window.location.hostname;
+
+      if (isSameHost) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const href = this.href;
+
+          document.body.classList.remove("page-enter");
+          document.body.style.transform = "translateY(20px)";
+          document.body.style.opacity = "0";
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, 500);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+    
