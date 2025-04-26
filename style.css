@@ -25,6 +25,17 @@ body {
     opacity: 1;
   }
   
+  .page-enter {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .page-exit {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
   
   
   .overlay {
@@ -272,5 +283,86 @@ section p {
     color: #aaa;
     margin-top: 60px;
   }
+
+  /* =================== */
+/*    RESPONSIVE DESIGN FINAL */
+/* =================== */
+
+/* Pour les tablettes (768px ou moins) */
+@media (max-width: 768px) {
+  /* Nav devient vertical */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Logo plus petit */
+  .logo {
+    width: 80px;
+  }
+
+  /* Bouton centré */
+  .btn-en-savoir-plus {
+    width: 80%;
+    margin: 20px auto;
+    font-size: 16px;
+  }
+
+  /* Section principale */
+  section {
+    padding: 30px 20px;
+    margin-top: 20px;
+  }
+
+  /* Image emblème */
+  section img {
+    max-width: 80%;
+  }
+
+  /* Texte et images dans les blocs */
+  .image-text-block {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-text-block.reverse {
+    flex-direction: column;
+  }
+
+  .image-text-block img,
+  .image-text-block .text {
+    max-width: 100%;
+  }
+}
+
+/* Pour les téléphones (480px ou moins) */
+@media (max-width: 480px) {
+  header p {
+    font-size: 16px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  .btn-en-savoir-plus {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+
+  section {
+    padding: 20px 10px;
+  }
+
+  h2, h3 {
+    font-size: 22px;
+  }
+}
+
   
   

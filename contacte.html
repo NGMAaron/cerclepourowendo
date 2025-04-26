@@ -2,15 +2,21 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Association citoyenne pour le développement d'Owendo. Contactez-nous pour en savoir plus sur nos actions.">
+  <meta name="keywords" content="Owendo, Association, Développement, Communauté, Contact, Cercle d'Actions pour Owendo">
+  <meta name="author" content="Cercle d'Actions pour Owendo">
   <link rel="icon" href="img/x-icon.ico" type="image/x-icon">
-  <title>Contacte</title>
+  <title>Contact</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </head>
+
 <body>
   <div class="overlay"></div>
+
   <header>
-    <img src="img/logo.jpg" class="logo" alt="Logo">
+    <img src="img/logo.jpg" class="logo" alt="Logo de l'association">
     <p>Maîtrisons notre avenir</p>
     <nav>
       <ul>
@@ -22,37 +28,42 @@
       </ul>
     </nav>
   </header>
-  <section>
-    <h2>Contactez-nous</h2>
-    <p>infos de contact :</p> 
-       <p>Email : cerclepourowendo@gmail.com </p> 
-        <p>Téléphone : 066277568 / 07 40 45 06 </p>
-        <p>localisation : 2ème Arrondissement d'owendo</p>
-  </section>
-  <footer><p>&copy;  copyrigth 2025 cercle d'action pour owendo par Khansu group</p></footer>
+
+  <main>
+    <section>
+      <h2>Contactez-nous</h2>
+      <address>
+        <p><strong>Email :</strong> <a href="mailto:cerclepourowendo@gmail.com">cerclepourowendo@gmail.com</a></p>
+        <p><strong>Téléphone :</strong> +241 066277568 / +241 07404506</p>
+        <p><strong>Localisation :</strong> 2<sup>ème</sup> Arrondissement d'Owendo</p>
+      </address>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cercle d'Actions pour Owendo — Site créé par Khansu Group</p>
+  </footer>
 
   <script>
-    // Ajout de la classe à l'arrivée sur la page
+    // Animation à l'arrivée
     window.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("page-enter");
     });
-  
-    // Animation de sortie sur tous les liens internes
+
+    // Animation de sortie sur les liens internes
     document.querySelectorAll("a").forEach(link => {
-      const isSameHost = link.hostname === window.location.hostname;
-  
-      if (isSameHost) {
+      if (link.hostname === window.location.hostname) {
         link.addEventListener("click", function (e) {
           e.preventDefault();
           const href = this.href;
-  
+
           document.body.classList.remove("page-enter");
           document.body.style.transform = "translateY(20px)";
           document.body.style.opacity = "0";
-  
+
           setTimeout(() => {
             window.location.href = href;
-          }, 500); // doit être inférieur au transition du CSS
+          }, 500);
         });
       }
     });

@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Association citoyenne engagée pour le développement local et la solidarité à Owendo.">
+  <meta name="description" content="Association citoyenne pour le développement d'Owendo. Rejoignez notre mouvement pour une commune plus juste, transparente et participative.">
+  <meta name="keywords" content="Owendo, Association, Développement, Communauté, Élections municipales, Cercle d'Actions pour Owendo">
+  <meta name="author" content="Cercle d'Actions pour Owendo">
   <link rel="icon" href="img/x-icon.ico" type="image/x-icon">
   <title>L'Association</title>
   <link rel="stylesheet" href="style.css">
@@ -43,7 +45,7 @@
 
     <section>
       <h3>Campagne</h3>
-      <p>Nous avons pris part activement à la campagne dans le 2ème Arrondissement d'Owendo, notre fief.</p>
+      <p>Nous avons pris part activement à la campagne dans le 2ᵉ Arrondissement d'Owendo, notre fief.</p>
 
       <div class="carousel">
         <img src="img/fp.jpg" alt="Campagne 1">
@@ -60,26 +62,34 @@
     </section>
   </main>
 
-  <footer><p>&copy;  copyrigth 2025 cercle d'action pour owendo par Khansu group</p></footer>
+  <footer><p>&copy; 2025 Cercle d'Actions pour Owendo — Site créé par Khansu Group</p></footer>
 
   <script>
-    // Animation d'entrée
-    window.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("page-enter");
-    });
 
-    // Animation de sortie sur les liens internes
-    document.querySelectorAll("a").forEach(link => {
-      if (link.hostname === window.location.hostname) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const href = this.href;
-          document.body.classList.remove("page-enter");
-          document.body.style.transform = "translateY(20px)";
-          document.body.style.opacity = "0";
-          setTimeout(() => window.location.href = href, 500);
-        });
-      }
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          document.body.classList.remove("page-exit");
+          document.body.style.opacity = "1";
+          document.body.style.transform = "none";
+        }
+      });
+
+      document.querySelectorAll("a").forEach(link => {
+        if (link.hostname === window.location.hostname) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const href = this.href;
+
+            document.body.classList.add("page-exit");
+
+            setTimeout(() => {
+              window.location.href = href;
+            }, 500);
+          });
+        }
+      });
     });
 
     // Lightbox plein écran

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta name="description" content="Association citoyenne pour le développement d'Owendo. Rejoignez notre mouvement pour une commune plus juste, transparente et participative.">
+  <meta name="keywords" content="Owendo, Association, Développement, Communauté, Élections municipales, Cercle d'Actions pour Owendo">
+  <meta name="author" content="Cercle d'Actions pour Owendo">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <link rel="icon" href="img/x-icon.ico" type="image/x-icon">
   <title>Projet communal</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </head>
+
 <body>
   <div class="overlay"></div>
+
   <header>
-    <img src="img/logo.jpg" class="logo" alt="Logo">
+    <img src="img/logo.jpg" class="logo" alt="Logo de l'association Cercle d'Actions pour Owendo">
     <p>Maîtrisons notre avenir</p>
     <nav>
       <ul>
@@ -37,58 +43,63 @@
     <div class="image-text-block">
       <div class="text">
         <h3>Sensibilisation</h3>
-        <p>Sensibilisation au domicile du Président la lutte contre l'insécurité dans le quartier.</p>
+        <p>Sensibilisation au domicile du Président contre l'insécurité dans le quartier.</p>
       </div>
-      <img src="img/sensi.jpg" alt="Campagne de sensibilisation">
+      <img src="img/sensi.jpg" alt="Campagne de sensibilisation contre l'insécurité">
     </div>
 
     <div class="image-text-block reverse">
       <img src="img/tra.jpg" alt="Travaux communautaires">
       <div class="text">
         <h3>Travaux communautaires</h3>
-        <p>Une action avec les jeunes d'Akournam 2, la ruelle mombo, afin de la rendre praticable.</p>
+        <p>Action menée avec les jeunes d'Akournam 2 (ruelle Mombo) pour rendre la voie praticable.</p>
       </div>
     </div>
 
     <div class="image-text-block">
       <div class="text">
         <h3>Réunions publiques</h3>
-        <p>Une rencontre entre le Président de l'association et un groupe d'entrepreneurs , dans le but de trouver des partenaires afin de travailler certaines voies secondaires du 2eme Arrondissement d'owendo.</p>
+        <p>Rencontre entre le Président de l'association et des entrepreneurs pour travailler sur les voies secondaires du 2ᵉ Arrondissement d'Owendo.</p>
       </div>
-      <img src="img/reu.jpg" alt="Réunion publique">
+      <img src="img/reu.jpg" alt="Réunion publique avec les entrepreneurs locaux">
     </div>
   </section>
 
-  <footer><p>&copy;  copyrigth 2025 cercle d'action pour owendo par Khansu group</p></footer>
+  <footer>
+    <p>&copy; 2025 Cercle d'Actions pour Owendo — Site créé par Khansu Group</p>
+  </footer>
 
   <script>
-    // Animation d'entrée
-    window.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("page-enter");
-    });
 
-    // Animation de sortie sur les liens
-    document.querySelectorAll("a").forEach(link => {
-      const isSameHost = link.hostname === window.location.hostname;
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          document.body.classList.remove("page-exit");
+          document.body.style.opacity = "1";
+          document.body.style.transform = "none";
+        }
+      });
 
-      if (isSameHost) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const href = this.href;
+      document.querySelectorAll("a").forEach(link => {
+        if (link.hostname === window.location.hostname) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const href = this.href;
 
-          document.body.classList.remove("page-enter");
-          document.body.style.transform = "translateY(20px)";
-          document.body.style.opacity = "0";
+            document.body.classList.add("page-exit");
 
-          setTimeout(() => {
-            window.location.href = href;
-          }, 500);
-        });
-      }
+            setTimeout(() => {
+              window.location.href = href;
+            }, 500);
+          });
+        }
+      });
     });
   </script>
 </body>
 </html>
+
 
 
 

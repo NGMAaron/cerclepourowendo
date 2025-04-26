@@ -7,15 +7,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" href="img/x-icon.ico" type="image/x-icon">
-  <title>Accueil</title>
+  <title>Cercle d'Actions pour Owendo – Accueil</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </head>
+
 <body>
   <div class="overlay"></div>
 
   <header>
-    <img src="img/logo.jpg" alt="Logo de l'association" class="logo">
+    <img src="img/logo.jpg" alt="Logo de l'association Cercle d'Actions pour Owendo" class="logo">
     <p>Maîtrisons notre avenir</p>
     <nav>
       <ul>
@@ -29,43 +30,52 @@
   </header>
 
   <section>
-    <h2>Bienvenue sur le site de cercle d'actions pour owendo</h2>
+    <h2>Bienvenue sur le site de Cercle d'Actions pour Owendo</h2>
     <p>Bienvenue sur le site officiel de notre association citoyenne. À travers cette 
         plateforme, nous partageons notre vision, nos actions, et nos engagements envers 
         notre communauté. Découvrez notre vision pour une commune plus équitable, transparente et participative.
     </p>
-    <img src="img/emb.jpg" alt="emblème de la commune"class="emblème">
+    <img src="img/emb.jpg" alt="Emblème de la commune d'Owendo" class="embleme">
   </section>
+
   <button type="button" class="btn-en-savoir-plus" onclick="location.href='association.html'">En savoir plus</button>
 
-  <footer><p>&copy;  copyrigth 2025 cercle d'action pour owendo par Khansu group</p></footer>
+  <footer>
+    <p>&copy; 2025 Cercle d'Actions pour Owendo – Site créé par Khansu Group</p>
+  </footer>
 
   <script>
-    // Ajout de la classe à l'arrivée sur la page
-    window.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("page-enter");
-    });
-  
-    // Animation de sortie sur tous les liens internes
-    document.querySelectorAll("a").forEach(link => {
-      const isSameHost = link.hostname === window.location.hostname;
-  
-      if (isSameHost) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          const href = this.href;
-  
-          document.body.classList.remove("page-enter");
-          document.body.style.transform = "translateY(20px)";
-          document.body.style.opacity = "0";
-  
-          setTimeout(() => {
-            window.location.href = href;
-          }, 500); // doit être inférieur au transition du CSS
-        });
-      }
+
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          document.body.classList.remove("page-exit");
+          document.body.style.opacity = "1";
+          document.body.style.transform = "none";
+        }
+      });
+
+      document.querySelectorAll("a").forEach(link => {
+        if (link.hostname === window.location.hostname) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const href = this.href;
+
+            document.body.classList.add("page-exit");
+
+            setTimeout(() => {
+              window.location.href = href;
+            }, 500);
+          });
+        }
+      });
     });
   </script>
+</body>
+</html>
+
+    
   
   
 </body>
